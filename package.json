@@ -1,3 +1,5 @@
 {
-  "dependencies": {}
+  "dependencies": {
+    "mirrorx": "^0.2.4"
+  }
 }
