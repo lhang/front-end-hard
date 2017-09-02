@@ -13,4 +13,4 @@ function* syncDemo() {
 }
 
 console.log("before get result")
-runGenerator(syncDemo)
+runGenerator(syncDemo) 
