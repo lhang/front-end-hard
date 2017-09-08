@@ -40,6 +40,7 @@ let options = {
 
 
 /** Global hook methods
+ * ？？
  *	@public
  *	@namespace {Object}
  */
@@ -89,9 +90,11 @@ export class Component {
 		this._linkedStates = {};
 		/** @public */
 		this.nextProps = this.base = null;
-		/** @type {object} */
+    /** @type {object} */
+    // 触发getDefaultProps生命周期
 		this.props = hook(this, 'getDefaultProps') || {};
-		/** @type {object} */
+    /** @type {object} */
+    // 触发getInitialState生命周期
 		this.state = hook(this, 'getInitialState') || {};
 		// @TODO remove me?
 		hook(this, 'initialize');
@@ -122,7 +125,8 @@ export class Component {
 	 *		<input onChange={ this.linkState('text') } />
 	 *
 	 *	@example Set a deep state value on click
-	 *		<button onClick={ this.linkState('touch.coords', 'touches.0') }>Tap</button
+   *		<button onClick={ this.linkState('touch.coords', 'touches.0') }>Tap</button
+   理解为一个简单的双向绑定实现
 	 */
 	linkState(key, eventPath) {
 		let c = this._linkedStates,
@@ -138,7 +142,8 @@ export class Component {
 		triggerComponentRender(this);
 	}
 
-	/** @private */
+  /** @private */
+  // ？？
 	setProps(props, opts) {
 		return setComponentProps(this, props, opts);
 	}
@@ -157,6 +162,7 @@ export class Component {
 
 
 /** Virtual DOM Node */
+// 虚拟DOM节点类
 export class VNode {
 	constructor(nodeName, attributes, children) {
 		/** @type {string|function} */
